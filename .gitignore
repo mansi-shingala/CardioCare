@@ -63,6 +63,7 @@ __MACOSX/
 # =========================================================
 !backend/cardio_train.csv
 !backend/train_model.ipynb
+!backend/eda.ipynb
 !backend/model.pkl
 !backend/scaler.pkl
 !backend/metrics.json

@@ -64,9 +64,16 @@ function Predict() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
     setApiError(null);
     setResult(null);
+
+    // Validate physiological blood pressure condition
+    if (formData.ap_hi < formData.ap_lo) {
+      setApiError('Systolic Blood Pressure (ap_hi) must be greater than or equal to Diastolic Blood Pressure (ap_lo).');
+      return;
+    }
+
+    setLoading(true);
 
     try {
       // Send payload to FastAPI backend via Axios
@@ -75,9 +82,16 @@ function Predict() {
     } catch (err) {
       console.error('Prediction request failed:', err);
       if (err.response && err.response.data && err.response.data.detail) {
-        setApiError(JSON.stringify(err.response.data.detail));
+        const detail = err.response.data.detail;
+        if (Array.isArray(detail)) {
+          setApiError(detail.map(d => `${d.loc ? d.loc.slice(1).join(' -> ') : 'Field'}: ${d.msg}`).join(', '));
+        } else if (typeof detail === 'string') {
+          setApiError(detail);
+        } else {
+          setApiError(JSON.stringify(detail));
+        }
       } else {
-        setApiError('Unable to connect to FastAPI backend on port 8001. Please ensure the backend is running.');
+        setApiError('Unable to connect to the FastAPI backend. Please check that the API service is running and accessible.');
       }
     } finally {
       setLoading(false);

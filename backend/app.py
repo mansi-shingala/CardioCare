@@ -36,10 +36,12 @@ app = FastAPI(
 allowed_origins_env = os.getenv("CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173,http://localhost:5174,http://127.0.0.1:5174")
 allowed_origins = [origin.strip() for origin in allowed_origins_env.split(",") if origin.strip()]
 
+is_wildcard = "*" in allowed_origins
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=allowed_origins,
-    allow_credentials=True,
+    allow_credentials=not is_wildcard,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -113,6 +115,12 @@ def predict_cardiovascular_risk(data: HeartDiseaseInput):
     """
     if model is None or scaler is None:
         raise HTTPException(status_code=500, detail="Model is not loaded.")
+
+    if data.ap_hi < data.ap_lo:
+        raise HTTPException(
+            status_code=400,
+            detail="Systolic blood pressure (ap_hi) must be greater than or equal to diastolic blood pressure (ap_lo)."
+        )
 
     feature_names = [
         "age", "gender", "height", "weight", "ap_hi", "ap_lo",
