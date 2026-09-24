@@ -10,7 +10,7 @@ node_modules/
 frontend/node_modules/
 .npm
 
-# Environment variables & secrets (keep .env files private)
+# Environment variables & secrets
 .env
 .env.*
 *.env
@@ -59,18 +59,18 @@ __MACOSX/
 *.swp
 
 # =========================================================
-# Explicitly keep essential ML & Backend project files
+# Essential ML & Backend files
 # =========================================================
 !backend/cardio_train.csv
-!cardio_train.csv
 !backend/train_model.ipynb
-!train_model.ipynb
 !backend/model.pkl
 !backend/scaler.pkl
 !backend/metrics.json
 !backend/app.py
 !backend/requirements.txt
 
-# IDE / local databases
+# Local databases
 *.db
+
+# Local Anaconda files
 backend/anaconda_projects/
