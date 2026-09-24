@@ -1,0 +1,273 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+  --primary-color: #0284c7;
+  --primary-hover: #0369a1;
+  --primary-glow: rgba(2, 132, 199, 0.15);
+  --accent-color: #0d9488;
+  --danger-color: #e11d48;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --dark-bg: #0f172a;
+  --card-bg: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: #f8fafc;
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* Navbar */
+.navbar-custom {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.navbar-brand {
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: #0f172a !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 2px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+}
+
+.nav-link {
+  font-weight: 600;
+  color: var(--text-muted) !important;
+  transition: all 0.2s ease;
+  padding: 8px 16px !important;
+  border-radius: 8px;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary-color) !important;
+  background: #f0f9ff;
+}
+
+/* Cards & Surfaces */
+.custom-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-card:hover {
+  box-shadow: 0 8px 30px -4px rgba(15, 23, 42, 0.08);
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0369a1 100%);
+  color: #ffffff;
+  padding: 70px 0;
+  border-radius: 0 0 32px 32px;
+  box-shadow: 0 10px 30px -10px rgba(2, 132, 199, 0.3);
+}
+
+.hero-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  color: #cbd5e1;
+  font-size: 1.15rem;
+  font-weight: 400;
+  max-width: 680px;
+}
+
+/* Buttons */
+.btn-primary-custom {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px 0 var(--primary-glow);
+  transition: all 0.2s ease;
+}
+
+.btn-primary-custom:hover {
+  background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 rgba(2, 132, 199, 0.3);
+}
+
+.btn-outline-custom {
+  border: 2px solid var(--border-color);
+  color: var(--text-main);
+  background: #ffffff;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.btn-outline-custom:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background: #f0f9ff;
+}
+
+/* Form Styles */
+.form-section-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-label {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: #334155;
+  margin-bottom: 4px;
+}
+
+.form-control, .form-select {
+  border: 1.5px solid var(--border-color);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
+}
+
+.form-hint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+/* Prediction Result Card */
+.result-card-danger {
+  background: linear-gradient(145deg, #fff1f2 0%, #ffe4e6 100%);
+  border: 2px solid #fecdd3;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px -5px rgba(225, 29, 72, 0.15);
+}
+
+.result-card-success {
+  background: linear-gradient(145deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 2px solid #bbf7d0;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.15);
+}
+
+.risk-badge-danger {
+  background: #e11d48;
+  color: #ffffff;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.risk-badge-success {
+  background: #10b981;
+  color: #ffffff;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* Metric Display Cards */
+.metric-box {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.metric-box:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary-color);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.08);
+}
+
+.metric-value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1;
+}
+
+.metric-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 8px;
+}
+
+/* Disclaimer Banner */
+.disclaimer-banner {
+  background: #fffbeb;
+  border: 1px solid #fef3c7;
+  border-left: 4px solid var(--warning-color);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 0.88rem;
+  color: #92400e;
+}
+
+/* Footer */
+.footer-custom {
+  background: #0f172a;
+  color: #94a3b8;
+  border-top: 1px solid #1e293b;
+  padding: 30px 0;
+  margin-top: 60px;
+  font-size: 0.9rem;
+}

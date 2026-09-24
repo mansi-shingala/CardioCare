@@ -1,0 +1,76 @@
+# Python virtual environments
+venv/
+.venv/
+env/
+ENV/
+backend/venv/
+
+# Node & package dependencies
+node_modules/
+frontend/node_modules/
+.npm
+
+# Environment variables & secrets (keep .env files private)
+.env
+.env.*
+*.env
+*.env.local
+backend/.env
+frontend/.env
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Build & distribution artifacts
+dist/
+frontend/dist/
+build/
+*.egg-info/
+
+# IDE & Editor files
+.vscode/
+.idea/
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS & Temporary files
+.DS_Store
+Thumbs.db
+__MACOSX/
+*.tmp
+*.temp
+*.swp
+
+# =========================================================
+# Explicitly keep essential ML & Backend project files
+# =========================================================
+!backend/cardio_train.csv
+!cardio_train.csv
+!backend/train_model.ipynb
+!train_model.ipynb
+!backend/model.pkl
+!backend/scaler.pkl
+!backend/metrics.json
+!backend/app.py
+!backend/requirements.txt
+
+# IDE / local databases
+*.db
+backend/anaconda_projects/
