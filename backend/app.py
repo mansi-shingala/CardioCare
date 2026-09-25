@@ -34,7 +34,7 @@ app = FastAPI(
 
 # Configure CORS so the React frontend can talk to FastAPI
 allowed_origins_env = os.getenv("CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173,http://localhost:5174,http://127.0.0.1:5174")
-allowed_origins = [origin.strip() for origin in allowed_origins_env.split(",") if origin.strip()]
+allowed_origins = [origin.strip().rstrip('/') for origin in allowed_origins_env.split(",") if origin.strip()]
 
 is_wildcard = "*" in allowed_origins
 

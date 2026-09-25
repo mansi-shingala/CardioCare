@@ -14,8 +14,8 @@ Built with **React + Vite** for the frontend, **FastAPI + Scikit-Learn** for the
 
 ## 🌟 Key Features
 
-- **Trained on Real Clinical Data**: 1,000 patient records across 12 clinical biomarkers.
-- **High-Performance ML Model**: Evaluated with a stratified 80/20 train-test split. The **Random Forest Classifier** achieves **98.5% Accuracy** and **0.9987 ROC-AUC**.
+- **Trained on Real Clinical Data**: 70,000 patient records across 11 clinical biomarkers from `cardio_train.csv`.
+- **High-Performance ML Model**: Evaluated with a stratified 80/20 train-test split (13,724 hold-out test samples). The **Random Forest Classifier** achieves **73.24% Test Accuracy** and **0.8045 ROC-AUC**.
 - **Consistent Feature Preprocessing**: `StandardScaler` is fitted during training, serialized using `joblib`, and reused identically in FastAPI for zero training-serving skew.
 - **Dynamic Performance Dashboard**: The frontend queries the `/metrics` endpoint to display real test accuracy, confusion matrix, and feature importance weights dynamically (no hardcoded numbers).
 - **Interactive Prediction Interface**: Form input with live validation, quick "Load Sample High Risk" and "Load Sample Low Risk" presets for college viva demonstrations, and an animated probability bar.
@@ -248,7 +248,7 @@ The model utilizes 12 clinical indicators:
 ## 🎓 Viva Voce / Oral Examination Questions & Answers
 
 **Q1: Why was Random Forest selected over other algorithms?**
-> *Answer:* We evaluated Logistic Regression, Decision Tree, K-Nearest Neighbors, and Random Forest on the exact same 200-sample test set. Random Forest achieved the highest combination of Test Accuracy (98.5%), F1-Score (98.71%), and ROC-AUC (0.9987). Being an ensemble of decision trees, it reduces overfitting through bagging and provides reliable probability estimations.
+> *Answer:* We evaluated Logistic Regression, Decision Tree, K-Nearest Neighbors, and Random Forest on the exact same 13,724-sample test set. Random Forest achieved the highest combination of Test Accuracy (73.24%), F1-Score (70.89%), and ROC-AUC (0.8045). Being an ensemble of decision trees, it reduces overfitting through bagging and provides reliable probability estimations.
 
 **Q2: Why must `patientid` be dropped before training?**
 > *Answer:* `patientid` is an artificial surrogate key assigned by the database. It possesses zero physiological relationship to heart disease. If kept, the algorithm could memorize row IDs, leading to spurious patterns and severe overfitting.

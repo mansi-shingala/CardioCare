@@ -123,11 +123,18 @@ body {
   transition: all 0.2s ease;
 }
 
-.btn-primary-custom:hover {
+.btn-primary-custom:hover:not(:disabled) {
   background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px 0 rgba(2, 132, 199, 0.3);
+}
+
+.btn-primary-custom:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 .btn-outline-custom {
@@ -271,3 +278,72 @@ body {
   margin-top: 60px;
   font-size: 0.9rem;
 }
+
+/* API Status Button & Pulse */
+.api-status-btn {
+  transition: all 0.2s ease;
+  user-select: none;
+  border-color: #e2e8f0 !important;
+}
+
+.api-status-btn:hover:not(:disabled) {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  transform: translateY(-1px);
+}
+
+.api-status-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.status-indicator-online {
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulse-green 2s infinite;
+}
+
+.status-indicator-offline {
+  box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.7);
+  animation: pulse-red 2s infinite;
+}
+
+.status-indicator-checking {
+  box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+  animation: pulse-amber 1.5s infinite;
+}
+
+@keyframes pulse-green {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+@keyframes pulse-red {
+  0% {
+    box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(225, 29, 72, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(225, 29, 72, 0);
+  }
+}
+
+@keyframes pulse-amber {
+  0% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(245, 158, 11, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+  }
+}
+

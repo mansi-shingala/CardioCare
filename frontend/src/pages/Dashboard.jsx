@@ -139,7 +139,7 @@ function Dashboard() {
               <div className="custom-card p-4 h-100">
                 <h5 className="fw-bold mb-2">Confusion Matrix ({metrics.selected_model})</h5>
                 <p className="text-muted small mb-4">
-                  Breakdown of 200 test predictions versus ground truth clinical diagnosis.
+                  Breakdown of {metrics.test_samples.toLocaleString()} test predictions versus ground truth clinical diagnosis.
                 </p>
 
                 <div className="d-flex flex-column gap-2 text-center">

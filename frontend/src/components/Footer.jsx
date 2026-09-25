@@ -9,7 +9,7 @@ function Footer() {
             <h6 className="text-white fw-bold mb-2">🫀 CardioCare ML Prediction System</h6>
             <p className="small mb-0" style={{ color: '#94a3b8' }}>
               Full-Stack Machine Learning project built with React, Vite, FastAPI, and Scikit-Learn.
-              Trained on actual clinical cardiovascular data with 98.5% accuracy.
+              Trained on actual clinical cardiovascular data with 73.2% validated test accuracy.
             </p>
           </div>
           <div className="col-md-6 text-md-end">
